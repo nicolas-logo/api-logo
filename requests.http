@@ -1,0 +1,23 @@
+###
+POST http://localhost:9000/api/coins HTTP/1.1
+Content-Type: application/json
+
+{
+    "comment": "test",
+    "symbol": "test"
+}
+
+###
+GET http://localhost:9000/api/coins HTTP/1.1
+
+###
+GET http://localhost:9000/api/coins/pepe HTTP/1.1
+
+###
+PUT http://localhost:9000/api/coins/645737f7da2e651c6cf1f02c HTTP/1.1
+Content-Type: application/json
+
+{
+    "comment": "test2",
+    "symbol": "test2"
+}
