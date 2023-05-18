@@ -11,11 +11,11 @@ router.post("/coins", async (req, res) => {
     const { comment, symbol } = req.body
     const coinSaved = await coinSchema.findOne({ symbol });
     console.log('symbol:', symbol);
-    console.log('coinSaved:', symbol);
+    console.log('coinSaved:', coinSaved);
 
     if(coinSaved) {
-        const { id } = req.params;
-        coinSchema.updateOne({_id: id}, {$set:{comment, symbol}})
+        const { _id } = coinSaved;
+        coinSchema.updateOne({_id: _id}, {$set:{comment, symbol}})
         .then(data => {
             res.json(data);
             console.log('Coin updated:', data)
